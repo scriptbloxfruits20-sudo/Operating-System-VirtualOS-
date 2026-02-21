@@ -1,0 +1,87 @@
+{
+  "name": "macOS-like-operating-system",
+  "version": "1.0.0",
+  "description": "Advanced macOS-like operating system with smooth GPU-accelerated graphics",
+  "type": "system",
+  "languages": ["C", "C++", "Objective-C", "Swift"],
+  "platforms": ["macOS"],
+  "build": {
+    "system": "CMake",
+    "minimumVersion": "3.20",
+    "configurations": {
+      "debug": {
+        "optimization": "-O0",
+        "symbols": "-g"
+      },
+      "release": {
+        "optimization": "-O3 -march=native",
+        "symbols": ""
+      }
+    }
+  },
+  "dependencies": {
+    "system": {
+      "frameworks": [
+        "Foundation",
+        "AppKit",
+        "Metal",
+        "MetalKit",
+        "CoreGraphics",
+        "QuartzCore"
+      ]
+    },
+    "external": {
+      "glm": {
+        "type": "header-only",
+        "path": "external/glm"
+      }
+    }
+  },
+  "architecture": {
+    "kernel": {
+      "language": "C",
+      "components": [
+        "process_management",
+        "memory_management",
+        "device_abstraction",
+        "scheduling"
+      ]
+    },
+    "graphics": {
+      "language": "C++",
+      "components": [
+        "gpu_device",
+        "shader_compilation",
+        "render_targets",
+        "effects_system",
+        "texture_management"
+      ]
+    },
+    "ui": {
+      "language": "Objective-C / Swift",
+      "components": [
+        "window_management",
+        "event_system",
+        "desktop_environment",
+        "menu_bar",
+        "dock"
+      ]
+    },
+    "applications": {
+      "language": "Swift",
+      "components": [
+        "finder",
+        "terminal",
+        "safari",
+        "mail",
+        "calendar",
+        "system_preferences"
+      ]
+    }
+  },
+  "performance": {
+    "targetFPS": 60,
+    "gpuAcceleration": true,
+    "memoryOptimized": true
+  }
+}
